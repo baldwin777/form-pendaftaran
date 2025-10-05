@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Form Pendaftaran Mahasiswa Baru</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card" role="main">
+    <header>
+      <h1>Form Pendaftaran Mahasiswa Baru</h1>
+      <p class="lead">Isi data dengan lengkap.</p>
+    </header>
+
+    <form id="regForm" novalidate>
+      <div class="full"><label for="fullName">Nama Lengkap  </label><input id="fullName" name="fullName" type="text" placeholder="Nama sesuai KTP / Ijazah"></div>
+      <div><label for="birthDate">Tanggal Lahir </label><input id="birthDate" name="birthDate" type="date"></div>
+      <div><label for="gender">Jenis Kelamin </label><select id="gender" name="gender"><option value="">-- Pilih --</option><option value="L">Laki-laki</option><option value="P">Perempuan</option><option value="lain">Lainnya</option></select></div>
+      <div><label for="email">Email </label><input id="email" name="email" type="email" placeholder="nama@gmail.com"></div>
+      <div><label for="phone">No. Telepon/HP </label><input id="phone" name="phone" type="tel" placeholder="62xxxx" pattern="[0-9+\- ]{6,20}"></div>
+      <div class="full"><label for="address">Alamat Lengkap </label><textarea id="address" name="address" placeholder="Jalan, RT/RW, Kelurahan, Kecamatan, Kota/Kabupaten, Provinsi"></textarea></div>
+      <div><label for="prevSchool">Asal Sekolah </label><input id="prevSchool" name="prevSchool" type="text" placeholder="Nama sekolah"></div>
+      <div><label for="program">Program Studi yang Dipilih </label><select id="program" name="program"><option value="">-- Pilih Program Studi --</option><option value="cs">S1 Computer Science</option><option value="info">S1 Sistem Informasi</option><option value="manajemen">S1 Manajemen</option><option value="akuntansi">S1 Akuntansi</option></select></div>
+      <div><label for="password">Password </label><input id="password" name="password" type="password" placeholder="Minimal 8 karakter"></div>
+      <div><label for="confirmPassword">Konfirmasi Password </label><input id="confirmPassword" name="confirmPassword" type="password" placeholder="Masukkan ulang password"></div>
+      <div><label>Pas Foto </label><div class="row"><div class="photo-preview" id="photoPreview"><span class="small">Preview</span></div><div style="flex:1"><input id="photo" name="photo" type="file" accept="image/*"><div class="small">Maks 2MB. JPG/PNG.</div></div></div></div>
+      <div><label>Upload Ijazah </label><div class="row"><div style="flex:1"><input id="ijazah" name="ijazah" type="file" accept=".pdf,.jpg,.jpeg,.png"><div class="small">Maks 5MB. PDF/JPG/PNG.</div></div></div></div>
+      <div class="full"><label><input id="agree" name="agree" type="checkbox"> Saya menyatakan data yang diberikan benar dan bersedia mematuhi peraturan akademik. </label></div>
+      <div class="actions"><button type="button" id="resetBtn" class="btn-ghost">Reset</button><button type="submit" class="btn-primary">Kirim Pendaftaran</button></div>
+    </form>
+
+    <div id="modal" class="modal-backdrop" role="dialog" aria-modal="true">
+      <div class="modal">
+        <h2>Ringkasan Data</h2>
+        <p class="small">Periksa kembali data sebelum dikirim.</p>
+        <pre id="summaryPre">-</pre>
+        <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:8px">
+          <button id="closeModal" class="btn-ghost">Tutup</button>
+          <button id="confirmSend" class="btn-primary">Konfirmasi & Simpan</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
